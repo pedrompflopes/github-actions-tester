@@ -1,0 +1,19 @@
+name: Checkmarx Scan
+
+on: [pull_request,workflow_dispatch,push]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Checkmarx AST CLI Action
+        uses: checkmarx/ast-github-action@AST-12645-pr-decoration-from-gh-action
+        with:
+          base_uri: ${{ secrets.BASE_URL }}
+          cx_tenant: ${{ secrets.TENANT }}
+          cx_client_id: ${{ secrets.CX_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}

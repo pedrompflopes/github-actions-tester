@@ -1,3 +1,3 @@
 # github-actions-tester
 
-pt
+pr
